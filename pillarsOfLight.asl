@@ -24,7 +24,7 @@ update
 
 start
 {
-    return current.internalTimerIsActivated;
+    return current.internalTimerIsActivated && current.levelIndex > 0;
 }
 
 split
