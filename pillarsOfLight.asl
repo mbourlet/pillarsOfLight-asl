@@ -12,6 +12,7 @@ init
             vars.Helper["levelIndex"] = mono.Make<int>("AutosplitVariables", "levelIndex");
             vars.Helper["isLoading"] = mono.Make<bool>("AutosplitVariables", "isLoading");
             vars.Helper["isPaused"] = mono.Make<bool>("AutosplitVariables", "isPaused");
+            vars.Helper["internalTimerIsActivated"] = mono.Make<bool>("AutosplitVariables", "internalTimerIsActivated");
             return true;
         });
 }
@@ -41,7 +42,7 @@ reset
     /* If you're in the main menu with a playtime of 0, you probably just reset your save file,
     * and you definitely aren't in a current run, so reset the timer.
     */
-    return current.levelIndex == 0;
+    return !current.internalTimerIsActivated;
 }
 
 exit
